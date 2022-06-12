@@ -1,3 +1,4 @@
 
-
+server:
+  port: 8082
 me: Mister Ndiaye Alassane .
