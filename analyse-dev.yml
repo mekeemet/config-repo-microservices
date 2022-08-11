@@ -1,1 +1,67 @@
 user: adell
+
+
+spring:        
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:8484/auth/realms/adel/protocol/openid-connect/certs
+  application:
+    name: analyse
+    discovery:
+      enabled: true
+  zipkin:
+    enabled: false
+  #  sleuth:
+#    sampler:
+#      probability: 1.0
+#  zipkin:
+#    base-url: http://localhost:9411/
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: ${user:adel}
+    password: ${DB_PASS:passer123}
+    url: jdbc:postgresql://${DB_HOST:10.42.1.204}:${DB_PORT:5432}/${DB_NAME:analyse_selection}
+  flyway:
+    baseline-on-migrate : true
+    enabled: true
+  profiles:
+    active: dev
+##eureka
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: localhost:8761/eureka/
+
+# Management EndPoints exposure
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+---
+swagger:
+  username: ${SWAGGER_USERNAME:adel_user}
+  password: ${SWAGGER_PASSWORD:Test123}
+  #role: ${SWAGGER_ROLE}
+  enableFlag: ${SWAGGER_ENABLE:true}
+---
+camunda:
+  client:
+    base-url: ${BASE_URL_CAMUNDA:http://localhost:8082/engine-rest} # the URL pointing to the Camunda Platform Runtime REST API
+    lock-duration: ${LOCK_DURATION:10000 } # defines how many milliseconds the External Tasks are locked until they can be fetched again
+
+
+
+server:
+  port: 8081
+
