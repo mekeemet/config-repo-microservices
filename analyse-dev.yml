@@ -1,3 +1,7 @@
+
+ueraname: adel
+password: passer123
+
 spring:
 
   jpa:
