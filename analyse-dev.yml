@@ -1,17 +1,1 @@
-
-test: adel
-teste: passer123
-
-spring:
-
-  jpa:
-    database: POSTGRESQL
-    show-sql: true
-    hibernate:
-      ddl-auto: update
-
-  datasource:
-    driver-class-name: org.postgresql.Driver
-    username: adel
-    password: passer123
-    url: jdbc:postgresql://${DB_HOST:10.42.1.204}:${DB_PORT:5432}/${DB_NAME:analyse_selection}
+user: adell
