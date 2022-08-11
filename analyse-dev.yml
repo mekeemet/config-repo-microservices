@@ -8,6 +8,6 @@ spring:
 
   datasource:
     driver-class-name: org.postgresql.Driver
-    username: ${DB_USER:adel}
-    password: ${DB_PASS:passer123}
+    username: adel
+    password: passer123
     url: jdbc:postgresql://${DB_HOST:10.42.1.204}:${DB_PORT:5432}/${DB_NAME:analyse_selection}
